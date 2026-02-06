@@ -49,7 +49,7 @@ export const config = {
     {
       id: 3,
       imageUrl:
-        "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=happy+couple+laughing+together+in+a+park+spring+season+digital+art+style&image_size=portrait_4_3",
+        "https://res.cloudinary.com/dymahyzab/image/upload/v1770412196/Image_to_Video_Generator_bqy3iz.gif",
       message: "Every moment with you is a treasure.",
       audioUrl:
         "https://res.cloudinary.com/dymahyzab/video/upload/v1770277907/Valentine/default/Syemca_Chike_Love_Egbugomo_Visualizer.mp3",

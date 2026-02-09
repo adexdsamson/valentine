@@ -3,7 +3,7 @@
 import React, { useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence, PanInfo } from 'framer-motion';
-import { ChevronLeft, ChevronRight, Volume2, VolumeX, Music, Loader2, PauseCircle } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Volume2, VolumeX, Music, Loader2, PauseCircle, PlayCircle } from 'lucide-react';
 import { galleryData } from '../data/galleryData';
 import { config } from '../config';
 import { useAudio } from '../hooks/useAudio';
@@ -36,8 +36,9 @@ const SwipeGallery: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [direction, setDirection] = useState(0);
   const [isMuted, setIsMuted] = useState(false);
-  const [isPaused, setIsPaused] = useState(false);
   const pointerStart = useRef<{ x: number; y: number; t: number } | null>(null);
+  const lastTapTimeRef = useRef<number>(0);
+  const [overlayType, setOverlayType] = useState<'pause' | 'play' | null>(null);
   
   // Extract all image URLs for preloading
   const imageUrls = galleryData.map(item => item.imageUrl);
@@ -89,6 +90,13 @@ const SwipeGallery: React.FC = () => {
     // Ignore if interacting with UI controls
     if (isInteractiveTarget(e.target)) return;
 
+    const now = performance.now();
+    if (now - lastTapTimeRef.current < 300) {
+      // debounce double taps
+      return;
+    }
+    lastTapTimeRef.current = now;
+
     const dt = performance.now() - start.t;
     const dx = Math.abs(e.clientX - start.x);
     const dy = Math.abs(e.clientY - start.y);
@@ -96,21 +104,29 @@ const SwipeGallery: React.FC = () => {
 
     // Treat as tap if quick and minimal movement
     if (dt < 250 && distance < 10) {
-      // Prevent accidental double taps toggling rapidly
-      if (isPaused) return;
       try {
         const audio = audioRef.current;
-        if (audio && !audio.paused) {
-          audio.pause();
-          setIsPaused(true);
+        if (audio) {
+          if (audio.paused) {
+            audio.play().catch(() => {});
+            setOverlayType('play');
+            setTimeout(() => setOverlayType(null), 900);
+          } else {
+            audio.pause();
+            setOverlayType('pause');
+          }
         } else {
-          // No audio currently playing; show brief feedback anyway
-          setIsPaused(true);
-          setTimeout(() => setIsPaused(false), 1200);
+          // No audio currently available; show brief feedback
+          setOverlayType('pause');
+          setTimeout(() => {
+            setOverlayType(null);
+          }, 1200);
         }
       } catch {
-        setIsPaused(true);
-        setTimeout(() => setIsPaused(false), 1200);
+        setOverlayType('pause');
+        setTimeout(() => {
+          setOverlayType(null);
+        }, 1200);
       }
     }
   };
@@ -188,16 +204,19 @@ const SwipeGallery: React.FC = () => {
               </motion.div>
             </div>
           </motion.div>
-            {isPaused && (
+            {overlayType && (
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 className="absolute inset-0 z-40 flex items-center justify-center"
               >
-                <div className="bg-black/50 backdrop-blur-sm rounded-2xl px-5 py-3 flex items-center text-white">
-                  <PauseCircle size={28} className="mr-2 text-romantic-red" />
-                  <span className="font-semibold">Paused</span>
+                <div className="bg-black/40 backdrop-blur-sm rounded-full p-3 text-white">
+                  {overlayType === 'pause' ? (
+                    <PauseCircle size={36} className="text-romantic-red" />
+                  ) : (
+                    <PlayCircle size={36} className="text-romantic-red" />
+                  )}
                 </div>
               </motion.div>
             )}

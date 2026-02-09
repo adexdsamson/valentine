@@ -1,12 +1,13 @@
  
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import React, { useState, useEffect } from 'react';
+import React, { useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence, PanInfo } from 'framer-motion';
-import { ChevronLeft, ChevronRight, Volume2, VolumeX, Music } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Volume2, VolumeX, Music, Loader2, PauseCircle } from 'lucide-react';
 import { galleryData } from '../data/galleryData';
 import { config } from '../config';
 import { useAudio } from '../hooks/useAudio';
+import { useImagePreloader } from '../hooks/useImagePreloader';
 
 const variants = {
   enter: (direction: number) => ({
@@ -35,10 +36,16 @@ const SwipeGallery: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [direction, setDirection] = useState(0);
   const [isMuted, setIsMuted] = useState(false);
+  const [isPaused, setIsPaused] = useState(false);
+  const pointerStart = useRef<{ x: number; y: number; t: number } | null>(null);
+  
+  // Extract all image URLs for preloading
+  const imageUrls = galleryData.map(item => item.imageUrl);
+  const imagesLoaded = useImagePreloader(imageUrls);
   
   const currentItem = galleryData[currentIndex];
   
-  useAudio(currentItem.audioUrl, {
+  const audioRef = useAudio(currentItem.audioUrl, {
     muted: isMuted,
     startTime: currentItem.audioStartTime,
     endTime: currentItem.audioEndTime,
@@ -65,16 +72,64 @@ const SwipeGallery: React.FC = () => {
     }
   };
 
-  useEffect(() => {
-    // Preload next image
-    if (currentIndex < galleryData.length - 1) {
-      const img = new Image();
-      img.src = galleryData[currentIndex + 1].imageUrl;
+  const isInteractiveTarget = (el: EventTarget | null) => {
+    if (!(el instanceof HTMLElement)) return false;
+    return !!el.closest('button, a, input, textarea, select, [role="button"], [role="link"], [data-interactive="true"]');
+  };
+
+  const onPointerDown = (e: React.PointerEvent<HTMLDivElement>) => {
+    pointerStart.current = { x: e.clientX, y: e.clientY, t: performance.now() };
+  };
+
+  const onPointerUp = (e: React.PointerEvent<HTMLDivElement>) => {
+    const start = pointerStart.current;
+    pointerStart.current = null;
+    if (!start) return;
+
+    // Ignore if interacting with UI controls
+    if (isInteractiveTarget(e.target)) return;
+
+    const dt = performance.now() - start.t;
+    const dx = Math.abs(e.clientX - start.x);
+    const dy = Math.abs(e.clientY - start.y);
+    const distance = Math.sqrt(dx * dx + dy * dy);
+
+    // Treat as tap if quick and minimal movement
+    if (dt < 250 && distance < 10) {
+      // Prevent accidental double taps toggling rapidly
+      if (isPaused) return;
+      try {
+        const audio = audioRef.current;
+        if (audio && !audio.paused) {
+          audio.pause();
+          setIsPaused(true);
+        } else {
+          // No audio currently playing; show brief feedback anyway
+          setIsPaused(true);
+          setTimeout(() => setIsPaused(false), 1200);
+        }
+      } catch {
+        setIsPaused(true);
+        setTimeout(() => setIsPaused(false), 1200);
+      }
     }
-  }, [currentIndex]);
+  };
+
+  if (!imagesLoaded) {
+    return (
+      <div className="min-h-screen bg-black flex flex-col items-center justify-center text-white">
+        <Loader2 size={48} className="animate-spin text-romantic-red mb-4" />
+        <p className="font-serif text-xl animate-pulse">Loading memories...</p>
+      </div>
+    );
+  }
 
   return (
-    <div className="relative min-h-screen bg-black overflow-hidden flex flex-col items-center justify-center">
+    <div
+      className="relative min-h-screen bg-black overflow-hidden flex flex-col items-center justify-center"
+      onPointerDown={onPointerDown}
+      onPointerUp={onPointerUp}
+    >
       {/* Audio Control */}
       <button
         onClick={() => setIsMuted(!isMuted)}
@@ -133,8 +188,23 @@ const SwipeGallery: React.FC = () => {
               </motion.div>
             </div>
           </motion.div>
+            {isPaused && (
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                className="absolute inset-0 z-40 flex items-center justify-center"
+              >
+                <div className="bg-black/50 backdrop-blur-sm rounded-2xl px-5 py-3 flex items-center text-white">
+                  <PauseCircle size={28} className="mr-2 text-romantic-red" />
+                  <span className="font-semibold">Paused</span>
+                </div>
+              </motion.div>
+            )}
+
         </AnimatePresence>
       </div>
+
 
       {/* Navigation Controls (Visible on Desktop) */}
       <div className="absolute bottom-10 left-0 right-0 z-50 flex flex-col items-center gap-4">

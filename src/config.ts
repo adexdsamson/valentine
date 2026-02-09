@@ -27,7 +27,7 @@ export const config = {
     {
       id: 1,
       imageUrl:
-        "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=romantic+couple+meeting+in+a+cozy+coffee+shop+warm+lighting+digital+art+style&image_size=portrait_4_3",
+        "https://res.cloudinary.com/dymahyzab/image/upload/v1770651122/Image_to_Video_Generator_rhmkkk.gif",
       message: "Do you remember when we first met?",
       audioUrl:
         "https://res.cloudinary.com/dymahyzab/video/upload/v1770277889/Valentine/default/With_You_Refix_feat_Zion_Beatz.mp3",

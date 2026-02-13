@@ -28,7 +28,7 @@ export const config = {
       id: 1,
       imageUrl:
         "https://res.cloudinary.com/dymahyzab/image/upload/v1770651122/Image_to_Video_Generator_rhmkkk.gif",
-      message: "Do you remember when we first met?",
+      message: "I remember when I first you. 'Magical'",
       audioUrl:
         "https://res.cloudinary.com/dymahyzab/video/upload/v1770277889/Valentine/default/With_You_Refix_feat_Zion_Beatz.mp3",
       audioStartTime: timeToSeconds("0:20"),
@@ -50,7 +50,7 @@ export const config = {
       id: 3,
       imageUrl:
         "https://res.cloudinary.com/dymahyzab/image/upload/v1770412196/Image_to_Video_Generator_bqy3iz.gif",
-      message: "Every moment with you is a treasure.",
+      message: "Every message with you is a treasure.",
       audioUrl:
         "https://res.cloudinary.com/dymahyzab/video/upload/v1770277907/Valentine/default/Syemca_Chike_Love_Egbugomo_Visualizer.mp3",
       audioStartTime: timeToSeconds("0:00"),
@@ -61,7 +61,7 @@ export const config = {
       id: 4,
       imageUrl:
         "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=couple+hiking+adventure+mountains+scenic+view+digital+art+style&image_size=portrait_4_3",
-      message: "I love our adventures together.",
+      message: "I can't wait for our adventures together.",
       audioUrl:
         "https://res.cloudinary.com/dymahyzab/video/upload/v1770279793/Valentine/default/Olivia_Dean_So_Easy_Lyrics.mp3",
       audioStartTime: timeToSeconds("0:00"),

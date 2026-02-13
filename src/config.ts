@@ -27,43 +27,43 @@ export const config = {
     {
       id: 1,
       imageUrl:
-        "https://res.cloudinary.com/dymahyzab/image/upload/v1770651122/Image_to_Video_Generator_rhmkkk.gif",
-      message: "Do you remember when we first met?",
+        "https://res.cloudinary.com/dymahyzab/image/upload/v1771017216/Valentine/adeolu/WhatsApp_Image_Feb_12_2026_1.jpg",
+      message: "Our first date was truly magical...",
       audioUrl:
-        "https://res.cloudinary.com/dymahyzab/video/upload/v1770277889/Valentine/default/With_You_Refix_feat_Zion_Beatz.mp3",
-      audioStartTime: timeToSeconds("0:20"),
-      audioEndTime: timeToSeconds("1:35"),
+        "https://res.cloudinary.com/dymahyzab/video/upload/v1771017541/Valentine/adeolu/2Baba_African_Queen.mp3",
+      audioStartTime: timeToSeconds("0:02"),
+      audioEndTime: timeToSeconds("1:15"),
       nowPlaying: "Now Playing: With You",
     },
     {
       id: 2,
       imageUrl:
-        "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=romantic+dinner+by+the+beach+at+sunset+digital+art+style&image_size=portrait_4_3",
-      message: "Our first date was truly magical...",
+        "https://res.cloudinary.com/dymahyzab/image/upload/e_improve,e_sharpen/v1771014606/Valentine/adeolu/WhatsApp_Image_Feb_11_2026_1.jpg",
+      message: "Do you remember when we first met?",
       audioUrl:
-        "https://res.cloudinary.com/dymahyzab/video/upload/v1770277889/Valentine/default/With_You_Refix_feat_Zion_Beatz.mp3",
-      audioStartTime: timeToSeconds("1:37"),
-      audioEndTime: timeToSeconds("2:12"),
+        "https://res.cloudinary.com/dymahyzab/video/upload/v1771018023/Valentine/adeolu/Bracket_Yori_Yori.mp3",
+      audioStartTime: timeToSeconds("0:00"),
+      audioEndTime: timeToSeconds("0:39"),
       nowPlaying: "Now Playing: With You (Refix)",
     },
     {
       id: 3,
       imageUrl:
-        "https://res.cloudinary.com/dymahyzab/image/upload/v1770412196/Image_to_Video_Generator_bqy3iz.gif",
+        "https://res.cloudinary.com/dymahyzab/image/upload/v1771014606/Valentine/adeolu/WhatsApp_Image_Feb_12_2026.jpg",
       message: "Every moment with you is a treasure.",
       audioUrl:
-        "https://res.cloudinary.com/dymahyzab/video/upload/v1770277907/Valentine/default/Syemca_Chike_Love_Egbugomo_Visualizer.mp3",
-      audioStartTime: timeToSeconds("0:00"),
-      audioEndTime: timeToSeconds("1:04"),
+        "https://res.cloudinary.com/dymahyzab/video/upload/v1771018023/Valentine/adeolu/Bracket_Yori_Yori.mp3",
+      audioStartTime: timeToSeconds("0:39"),
+      audioEndTime: timeToSeconds("1:07"),
       nowPlaying: "Now Playing: Love Egbugomo",
     },
     {
       id: 4,
       imageUrl:
-        "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=couple+hiking+adventure+mountains+scenic+view+digital+art+style&image_size=portrait_4_3",
+        "https://res.cloudinary.com/dymahyzab/image/upload/e_improve,e_sharpen/v1771014606/Valentine/adeolu/WhatsApp_Image_Feb_11_2026_4.jpg",
       message: "I love our adventures together.",
       audioUrl:
-        "https://res.cloudinary.com/dymahyzab/video/upload/v1770279793/Valentine/default/Olivia_Dean_So_Easy_Lyrics.mp3",
+        "https://res.cloudinary.com/dymahyzab/video/upload/v1770277907/Valentine/default/Syemca_Chike_Love_Egbugomo_Visualizer.mp3",
       audioStartTime: timeToSeconds("0:00"),
       audioEndTime: timeToSeconds("0:59"),
       nowPlaying: "Now Playing: So Easy",
@@ -71,10 +71,10 @@ export const config = {
     {
       id: 5,
       imageUrl:
-        "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=close+up+holding+hands+wearing+rings+romantic+mood+digital+art+style&image_size=portrait_4_3",
+        "https://res.cloudinary.com/dymahyzab/image/upload/v1771020877/Valentine/adeolu/WhatsApp_Image_Feb_5_2026.jpg",
       message: "You make me smile every single day.",
       audioUrl:
-        "https://res.cloudinary.com/dymahyzab/video/upload/v1770280225/Valentine/default/Now_And_Always_Lyric_Video.mp3",
+        "https://res.cloudinary.com/dymahyzab/video/upload/v1771018677/Valentine/adeolu/Moreni_Keji_-_Konstant.mp3",
       audioStartTime: timeToSeconds("0:00"),
       audioEndTime: timeToSeconds("2:14"),
       nowPlaying: "Now Playing: Now And Always",
@@ -82,7 +82,7 @@ export const config = {
     {
       id: 6,
       imageUrl:
-        "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=silhouette+couple+kissing+under+moonlight+starry+night+digital+art+style&image_size=portrait_4_3",
+        "https://res.cloudinary.com/dymahyzab/image/upload/e_improve,e_sharpen/v1771014607/Valentine/adeolu/WhatsApp_Image_Feb_11_2026_3.jpg",
       message: "You are my everything.",
       audioUrl:
         "https://res.cloudinary.com/dymahyzab/video/upload/v1770280350/Valentine/default/Certain_Things_Lyrics_ft_Chasing_Grace.mp3",
@@ -98,18 +98,28 @@ export const config = {
   loveLetter: {
     text: `My Dearest Valentine,
 
-From the moment our paths crossed, my world has been brighter. Your smile lights up my darkest days, and your laughter is my favorite melody.
+If words can express the way my heart beats in sync, every beat will be a melody that sings a song of how much I missed every moment we were apart. 
+      
+Sorry can't mend the times I wasn't there, moments you wanted to share things with me, times when you needed me to encourage you. I was missing from your life for 3 years, and the thought of it still feels like a lifetime. 
+      
+I'm aware I broke your trust, and I'm not asking for forgiveness lightly. But what I want you to know is that I've been living these years without the part of me that was with you. I'm willing to do whatever it takes to rebuild, to relearn, and to be there this time. 
 
-Every memory we've shared, every adventure we've taken, has only deepened my love for you. You are my best friend, my confidant, and my greatest love.
-
-Thank you for being you. Thank you for choosing me.
+If you can find it in your heart to trust me again, I'd be honored to be part of your journey. You're the light of my life, beam 😊
 
 Forever yours,
 Your Valentine`,
     audioUrl:
-      "https://res.cloudinary.com/dymahyzab/video/upload/v1770280971/Valentine/default/Running_Up_That_Hill.mp3", // Placeholder: Add your audio URL here
-    audioStartTime: timeToSeconds("0:00"),
-    audioEndTime: timeToSeconds("0:53"), // 2 minutes
+      "https://res.cloudinary.com/dymahyzab/video/upload/v1771020100/Valentine/adeolu/Buju_BNXN_Pidgin_And_English.mp3", // Placeholder: Add your audio URL here
+    audioStartTime: timeToSeconds("0:31"),
+    audioEndTime: timeToSeconds("1:17"), // 2 minutes
     typingSpeed: 280,
+  },
+  intro: {
+    imageUrl:
+      "https://res.cloudinary.com/dymahyzab/image/upload/v1771014617/Valentine/adeolu/WhatsApp_Video_Feb_11_2026.gif",
+    audioUrl:
+      "https://res.cloudinary.com/dymahyzab/video/upload/v1771016330/Valentine/adeolu/P_Square_No_One_Like_You.mp3",
+    audioStartTime: timeToSeconds("0:02"),
+    audioEndTime: timeToSeconds("0:11"),
   },
 };

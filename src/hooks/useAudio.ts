@@ -22,6 +22,7 @@ export const useAudio = (url: string, options: UseAudioOptions) => {
 
     const audio = new Audio(url);
     audioRef.current = audio;
+    audio.preload = 'auto';
     audio.volume = options.volume ?? 0.5;
     audio.loop = options.loop ?? true;
     

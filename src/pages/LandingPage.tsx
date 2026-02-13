@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Heart } from 'lucide-react';
 import { config } from '../config';
+import { useAudio } from '../hooks/useAudio';
 
 const LandingPage: React.FC = () => {
   const navigate = useNavigate();
@@ -17,8 +18,16 @@ const LandingPage: React.FC = () => {
   };
 
   const handleYesClick = () => {
-    navigate('/gallery');
+    navigate('/intro');
   };
+
+  useAudio(config.intro.audioUrl, {
+    muted: true,
+    startTime: config.intro.audioStartTime,
+    endTime: config.intro.audioEndTime,
+    loop: false,
+    volume: 0.0,
+  });
 
   // Generate floating hearts for background
   const floatingHearts = Array.from({ length: 15 }).map((_, i) => ({

@@ -16,17 +16,17 @@ const IntroScreen: React.FC = () => {
   useEffect(() => {
     const id = setTimeout(() => {
       navigate('/gallery');
-    }, 17000);
+    }, 10000);
     return () => clearTimeout(id);
   }, [navigate]);
 
   return (
     <div className="intro-wrapper bg-black">
-      <div className="intro-landscape flex items-center justify-center">
+      <div className="intro-landscape">
         <img
           src={config.intro.imageUrl}
           alt="Intro"
-          className="w-full h-full object-cover"
+          className="intro-image"
         />
       </div>
     </div>

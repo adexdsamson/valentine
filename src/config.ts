@@ -30,10 +30,10 @@ export const config = {
         "https://res.cloudinary.com/dymahyzab/image/upload/v1771017216/Valentine/adeolu/WhatsApp_Image_Feb_12_2026_1.jpg",
       message: "Our first date was truly magical...",
       audioUrl:
-        "https://res.cloudinary.com/dymahyzab/video/upload/v1771017541/Valentine/adeolu/2Baba_African_Queen.mp3",
-      audioStartTime: timeToSeconds("0:02"),
-      audioEndTime: timeToSeconds("1:15"),
-      nowPlaying: "Now Playing: With You",
+        "https://res.cloudinary.com/dymahyzab/video/upload/v1771027585/Valentine/adeolu/Marina_About_Love.mp3",
+      audioStartTime: timeToSeconds("0:00"),
+      audioEndTime: timeToSeconds("1:09"),
+      nowPlaying: "Now Playing: About Love",
     },
     {
       id: 2,
@@ -41,10 +41,10 @@ export const config = {
         "https://res.cloudinary.com/dymahyzab/image/upload/e_improve,e_sharpen/v1771014606/Valentine/adeolu/WhatsApp_Image_Feb_11_2026_1.jpg",
       message: "Do you remember when we first met?",
       audioUrl:
-        "https://res.cloudinary.com/dymahyzab/video/upload/v1771018023/Valentine/adeolu/Bracket_Yori_Yori.mp3",
+        "https://res.cloudinary.com/dymahyzab/video/upload/v1771027595/Valentine/adeolu/To_Love_A_Woman_-_Lionel_Richie_Enrique_Iglesias.mp3",
       audioStartTime: timeToSeconds("0:00"),
-      audioEndTime: timeToSeconds("0:39"),
-      nowPlaying: "Now Playing: With You (Refix)",
+      audioEndTime: timeToSeconds("1:06"),
+      nowPlaying: "Now Playing: To Love a Women",
     },
     {
       id: 3,
@@ -52,10 +52,10 @@ export const config = {
         "https://res.cloudinary.com/dymahyzab/image/upload/v1771014606/Valentine/adeolu/WhatsApp_Image_Feb_12_2026.jpg",
       message: "Every moment with you is a treasure.",
       audioUrl:
-        "https://res.cloudinary.com/dymahyzab/video/upload/v1771018023/Valentine/adeolu/Bracket_Yori_Yori.mp3",
-      audioStartTime: timeToSeconds("0:39"),
-      audioEndTime: timeToSeconds("1:07"),
-      nowPlaying: "Now Playing: Love Egbugomo",
+        "https://res.cloudinary.com/dymahyzab/video/upload/v1771027582/Valentine/adeolu/Love_Never_Felt_So_Good_feat_Michael_Jackson.mp3",
+      audioStartTime: timeToSeconds("0:17"),
+      audioEndTime: timeToSeconds("1:15"),
+      nowPlaying: "Now Playing: Love Never Felt So Good",
     },
     {
       id: 4,
@@ -66,7 +66,7 @@ export const config = {
         "https://res.cloudinary.com/dymahyzab/video/upload/v1770277907/Valentine/default/Syemca_Chike_Love_Egbugomo_Visualizer.mp3",
       audioStartTime: timeToSeconds("0:00"),
       audioEndTime: timeToSeconds("0:59"),
-      nowPlaying: "Now Playing: So Easy",
+      nowPlaying: "Now Playing: Love Egbugomo",
     },
     {
       id: 5,
@@ -77,7 +77,7 @@ export const config = {
         "https://res.cloudinary.com/dymahyzab/video/upload/v1771018677/Valentine/adeolu/Moreni_Keji_-_Konstant.mp3",
       audioStartTime: timeToSeconds("0:00"),
       audioEndTime: timeToSeconds("2:14"),
-      nowPlaying: "Now Playing: Now And Always",
+      nowPlaying: "Now Playing: Morenikeji",
     },
     {
       id: 6,
@@ -118,8 +118,8 @@ Your Valentine`,
     imageUrl:
       "https://res.cloudinary.com/dymahyzab/image/upload/v1771014617/Valentine/adeolu/WhatsApp_Video_Feb_11_2026.gif",
     audioUrl:
-      "https://res.cloudinary.com/dymahyzab/video/upload/v1771016330/Valentine/adeolu/P_Square_No_One_Like_You.mp3",
-    audioStartTime: timeToSeconds("0:02"),
-    audioEndTime: timeToSeconds("0:11"),
+      "https://res.cloudinary.com/dymahyzab/video/upload/v1771027607/Valentine/adeolu/The_Weeknd_I_Feel_It_Coming_Feat_Daft_Punk.mp3",
+    audioStartTime: timeToSeconds("0:00"),
+    audioEndTime: timeToSeconds("0:18"),
   },
 };

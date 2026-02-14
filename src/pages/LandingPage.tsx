@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Heart } from 'lucide-react';
@@ -10,6 +10,21 @@ const LandingPage: React.FC = () => {
   const [yesScale, setYesScale] = useState(1);
   const [noScale, setNoScale] = useState(1);
   const [noClickCount, setNoClickCount] = useState(0);
+  const introAudioRef = useAudio(config.intro.audioUrl, {
+    muted: true,
+    startTime: config.intro.audioStartTime,
+    endTime: config.intro.audioEndTime,
+    loop: false,
+    volume: 0,
+  });
+
+  useEffect(() => {
+    const audio = introAudioRef.current;
+    if (audio) {
+      audio.preload = 'auto';
+      audio.load();
+    }
+  }, [introAudioRef]);
 
   const handleNoClick = () => {
     setNoScale((prev) => Math.max(0.2, prev - 0.15)); // Minimum 20% size
@@ -21,13 +36,7 @@ const LandingPage: React.FC = () => {
     navigate('/intro');
   };
 
-  useAudio(config.intro.audioUrl, {
-    muted: true,
-    startTime: config.intro.audioStartTime,
-    endTime: config.intro.audioEndTime,
-    loop: false,
-    volume: 0.0,
-  });
+  
 
   // Generate floating hearts for background
   const floatingHearts = Array.from({ length: 15 }).map((_, i) => ({

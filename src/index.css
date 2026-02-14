@@ -22,3 +22,24 @@ body {
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Playfair Display', serif;
 }
+
+.intro-wrapper {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.intro-landscape {
+  width: 100vw;
+  height: 100vh;
+}
+
+@media (orientation: portrait) {
+  .intro-landscape {
+    transform: rotate(90deg);
+    width: 100vh;
+    height: 100vw;
+    transform-origin: center center;
+  }
+}

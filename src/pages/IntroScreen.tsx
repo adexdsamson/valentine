@@ -16,7 +16,7 @@ const IntroScreen: React.FC = () => {
   useEffect(() => {
     const id = setTimeout(() => {
       navigate('/gallery');
-    }, 10000);
+    }, 17000);
     return () => clearTimeout(id);
   }, [navigate]);
 
